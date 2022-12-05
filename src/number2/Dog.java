@@ -7,28 +7,42 @@ public class Dog {
 
     private int paws = 4;
     private int tail = 1;
-    private String name = "РќРµРёР·РІРµСЃС‚РЅС‹Р№ РїРµСЃРёРє";
-    private String breed = "РљС‚Рѕ-С‚С‹, С‚РІР°СЂСЊ";
-    private String size = "РќРµРёР·РІРµСЃС‚РЅС‹Р№ СЂР°Р·РјРµСЂ";
-    private String[] bazaSize = {"РЁР°С„РєР°","РЎСЂРµРґРЅРёР№","Р’РѕР»РєРѕРґР°РІ"};
+    private String name = "Неизвестный песик";
+    private String breed = "Кто-ты, тварь";
+    private String size = "Неизвестный размер";
+    private final String[] bazaSize = {"Шафка","Средний","Волкодав"};
 
     public String getSize() {
         return size;
     }
 
     public void setSize(String size) {
-        for(int i=0;i<bazaSize.length; i++) {
-            if (bazaSize[i].equalsIgnoreCase(size)) {
-                this.size=size;
+        for (String s : bazaSize) {
+            if (s.equals(size)) {
+                this.size = size;
                 return;
             }
         }
-        System.out.println("РўР°РєРѕР№ СЂР°Р·РјРµСЂ РЅРµРїСЂРёРµРјР»РµРј С‚С‹ С‡Рµ");
+        System.out.println("Такой размер неприемлем ты че");
     }
 
     public Dog(){
         dogsCounter++;
-        System.out.println("Р•С‰Рµ РѕРґРЅР° РїСЃРёРЅР° РІ РєРѕРјР°РЅРґРµ");
+        System.out.println("Еще одна псина в команде");
+    }
+
+    public void bite(){
+        System.out.println("Собаки вам устроили кусь-кусь");
+    }
+
+    public void bark(){
+        switch (this.size){
+            case "Шафка" -> System.out.println("тяф-тяф");
+            case "Средний" -> System.out.println("гав-гав");
+            case "Волкодав" -> System.out.println("убью, сука");
+            default -> System.out.println("Неразборчивый звук");
+        }
+        if (dogsCounter>=3) bite();
     }
 
     public int getPaws() {
