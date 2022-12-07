@@ -9,40 +9,43 @@ public class Dog {
     private int tail = 1;
     private String name = "Неизвестный песик";
     private String breed = "Кто-ты, тварь";
-    private String size = "Неизвестный размер";
+    private Size size;
     private final String[] bazaSize = {"Шафка","Средний","Волкодав"};
 
-    public String getSize() {
+    public Size getSize() {
         return size;
     }
 
-    public void setSize(String size) {
-        for (String s : bazaSize) {
+    public void setSize(Size size) {
+
+      this.size = size;
+
+        /*for (String s : bazaSize) {
             if (s.equals(size)) {
                 this.size = size;
                 return;
             }
-        }
-        System.out.println("Такой размер неприемлем ты че");
+        }System.out.println("Такой размер неприемлем ты че");
+    */
     }
 
     public Dog(){
         dogsCounter++;
-        System.out.println("Еще одна псина в команде");
+        System.out.println("Еще одна псина в команде " + "(" + dogsCounter + ")");
     }
 
     public void bite(){
-        System.out.println("Собаки вам устроили кусь-кусь");
+        if (dogsCounter>=3) System.out.println("Собаки вам устроили кусь-кусь");
+        else bark();
     }
 
     public void bark(){
         switch (this.size){
-            case "Шафка" -> System.out.println("тяф-тяф");
-            case "Средний" -> System.out.println("гав-гав");
-            case "Волкодав" -> System.out.println("убью, сука");
+            case ШАФКА -> System.out.println("тяф-тяф");
+            case СРЕДНИЙ -> System.out.println("гав-гав");
+            case ВОЛКОДАВ -> System.out.println("убью, сука");
             default -> System.out.println("Неразборчивый звук");
         }
-        if (dogsCounter>=3) bite();
     }
 
     public int getPaws() {
