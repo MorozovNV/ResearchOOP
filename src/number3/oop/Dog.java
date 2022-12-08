@@ -1,6 +1,4 @@
-package number2;
-
-import java.sql.SQLOutput;
+package number3.oop;
 
 public class Dog {
     public static int dogsCounter = 0;
