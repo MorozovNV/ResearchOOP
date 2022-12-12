@@ -6,7 +6,7 @@ public class Auto {
     private String model = "A180";
     private EngineType engineType;
     private int currentSpeed;
-    private boolean isRunning; // по дефолту false
+    protected boolean isRunning; // по дефолту false
 
     public Auto(String producer, String model, EngineType engineType) {
         this.producer = producer;
