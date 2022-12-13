@@ -13,6 +13,7 @@ public class InheritanceMain {
         auto2.start();
         System.out.println(auto1.isRunning());
         System.out.println(auto2.isRunning());
+        System.out.println(auto2.isRunning());
     }
 
 }
