@@ -14,6 +14,10 @@ public class InheritanceMain {
         System.out.println(auto1.isRunning());
         System.out.println(auto2.isRunning());
         System.out.println(auto2.isRunning());
+
+        if (auto1 instanceof Bus) System.out.println("1");
+        if (auto1 instanceof Auto) System.out.println("2");
+        if (auto1 instanceof FuelAuto) System.out.println("3");
     }
 
 }

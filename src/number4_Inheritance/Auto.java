@@ -1,6 +1,6 @@
 package number4_Inheritance;
 
-public class Auto {
+public abstract class Auto {
 
     private String producer = "Mercedes";
     private String model = "A180";
