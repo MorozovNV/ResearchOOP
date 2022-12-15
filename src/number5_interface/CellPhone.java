@@ -1,6 +1,6 @@
 package number5_interface;
 
-public class CellPhone extends Electronics implements Deliverable {
+public class CellPhone extends Electronics implements Pricable {
     public CellPhone(String make, String model, int quantity, int price) {
         super(make, model, quantity, price);
     }
