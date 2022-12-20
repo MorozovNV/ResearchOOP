@@ -26,13 +26,14 @@ public class ListRunner {
                     param = scanner.nextInt();
                     break;
                 case 3:
-                    System.out.println("Please enter an item to update");
+                    System.out.println("Please enter index an item to update");
                     scanner.nextLine();
                     int i = scanner.nextInt();
                     System.out.println("Please enter a new task");
                     scanner.nextLine();
                     String task3 = scanner.nextLine();
                     list.changeTask(i, task3);
+
                     System.out.println("Please choose an action by typing [0-6]");
                     param = scanner.nextInt();
                     break;
@@ -41,6 +42,7 @@ public class ListRunner {
                     scanner.nextLine();
                     String task4 = scanner.nextLine();
                     list.removeTask(task4);
+
                     System.out.println("Please choose an action by typing [0-6]");
                     param = scanner.nextInt();
                     break;
@@ -49,6 +51,7 @@ public class ListRunner {
                     scanner.nextLine();
                     String task5 = scanner.nextLine();
                     System.out.println("Priority of the task is " + list.getTaskPriority(task5));
+
                     System.out.println("Please choose an action by typing [0-6]");
                     param = scanner.nextInt();
                     break;
@@ -59,12 +62,14 @@ public class ListRunner {
                     System.out.println("Please enter a new task");
                     String task6 = scanner.nextLine();
                     list.changeTask(index, task6);
+
                     System.out.println("Please choose an action by typing [0-6]");
                     param = scanner.nextInt();
                     break;
+                default: break;
+                }
             }
         }
-    }
 
     private static void printOut(){
         System.out.println("Please choose an action. Press :\n"
