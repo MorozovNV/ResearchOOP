@@ -1,18 +1,64 @@
 package number8_collections.StackQueue;
 
+import number8_collections.collectionsClass.Card;
+import number8_collections.collectionsClass.CardComparator;
+
+import java.util.Iterator;
+import java.util.PriorityQueue;
+import java.util.Queue;
 import java.util.Stack;
 
 public class StackQueueLauncher {
     public static void main(String[] args) {
-        passengerProcessing();
+     //   passengerProcessing();
+
+        //queue
+        Queue<Card> cardDeck = new PriorityQueue<>(52, new CardComparator());
+        for (Card.Face face : Card.Face.values()) {
+            for (Card.Suit suit : Card.Suit.values()) {
+                cardDeck.add(new Card(suit, face));
+            }
+        }
+
+        for (int i = 0; i< 0 ; i++) {
+            System.out.println(cardDeck.poll());//вызов с удалением
+        }
+        System.out.println("Deck Size is " + cardDeck.size());
+
+        System.out.println(cardDeck.peek()); //вызов без удаления
+        System.out.println(cardDeck.peek());
+        cardDeck.clear();
+        System.out.println("Deck Size is " + cardDeck.size());
+
+
+
+        /*  System.out.println(cardDeck); //вызов с разбросом небольшим
+        Iterator<Card> iterator = cardDeck.iterator();
+        while (iterator.hasNext()) {
+            System.out.println(iterator.next()); // не гарантирует возвращение в каком-то порядке
+        } */
     }
 
     private static void passengerProcessing() {
         Stack<Passenger> bus = new Stack<>();
+        Passenger passenger = new Passenger("Katerina", "Iavanova");
+        bus.push(new Passenger("Alex", "Vasko"));
+        bus.push(new Passenger("Viktor", "Mikhailov"));
+        bus.push(new Passenger("Dmitrii", "Petrov"));
+        bus.push(passenger);
+        bus.push(new Passenger("Ivan", "Ivanov"));
+
+        System.out.println("Passanger found at position :" + bus.search(passenger));
+        System.out.println("Last entered passenger is: " + bus.peek()); //возвращает верхний элемент но не удаляет его
+
+        while (!bus.empty()) {
+            System.out.println("Passenger :" + bus.pop());//берет верхний элемент и удаляет
+        }
+
     }
 
     private static class Passenger {
-        private static int number;
+        private static int number = 1;
         private String name;
         private String surname;
 
@@ -36,10 +82,7 @@ public class StackQueueLauncher {
 
         @Override
         public String toString() {
-            return "Passenger{" +
-                    "name='" + name + '\'' +
-                    ", surname='" + surname + '\'' +
-                    '}';
+            return "Passenger " + " " + name + " " + surname;
         }
     }
 
