@@ -12,7 +12,7 @@ public class StackQueueLauncher {
     public static void main(String[] args) {
      //   passengerProcessing();
 
-        //queue diana is the best girlfriend and just friend
+        //queue
         Queue<Card> cardDeck = new PriorityQueue<>(52, new CardComparator());
         for (Card.Face face : Card.Face.values()) {
             for (Card.Suit suit : Card.Suit.values()) {
