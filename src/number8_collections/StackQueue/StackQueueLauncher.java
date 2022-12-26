@@ -3,14 +3,11 @@ package number8_collections.StackQueue;
 import number8_collections.collectionsClass.Card;
 import number8_collections.collectionsClass.CardComparator;
 
-import java.util.Iterator;
-import java.util.PriorityQueue;
-import java.util.Queue;
-import java.util.Stack;
+import java.util.*;
 
 public class StackQueueLauncher {
     public static void main(String[] args) {
-     //   passengerProcessing();
+        //   passengerProcessing();
 
         //queue
         Queue<Card> cardDeck = new PriorityQueue<>(52, new CardComparator());
@@ -20,18 +17,26 @@ public class StackQueueLauncher {
             }
         }
 
-        for (int i = 0; i< 0 ; i++) {
+        for (int i = 0; i < 0; i++) {
             System.out.println(cardDeck.poll());//вызов с удалением
         }
         System.out.println("Deck Size is " + cardDeck.size());
 
         System.out.println(cardDeck.peek()); //вызов без удаления
         System.out.println(cardDeck.peek());
-        cardDeck.clear();
+        //cardDeck.clear();
         System.out.println("Deck Size is " + cardDeck.size());
 
+        System.out.println("Deque");
 
+        Deque<Card> cards = new ArrayDeque<>();
+        for (int i = 0; i < 20; i++) {
+            cards.offerFirst(cardDeck.poll());
+        }
 
+        for (int i = 0; i < 10; i++) {
+            System.out.println(cards.pollLast());
+        }
         /*  System.out.println(cardDeck); //вызов с разбросом небольшим
         Iterator<Card> iterator = cardDeck.iterator();
         while (iterator.hasNext()) {
@@ -48,7 +53,7 @@ public class StackQueueLauncher {
         bus.push(passenger);
         bus.push(new Passenger("Ivan", "Ivanov"));
 
-        System.out.println("Passanger found at position :" + bus.search(passenger));
+        System.out.println("Passenger found at position :" + bus.search(passenger));
         System.out.println("Last entered passenger is: " + bus.peek()); //возвращает верхний элемент но не удаляет его
 
         while (!bus.empty()) {
