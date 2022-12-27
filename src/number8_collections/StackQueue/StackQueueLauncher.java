@@ -34,9 +34,15 @@ public class StackQueueLauncher {
             cards.offerFirst(cardDeck.poll());
         }
 
-        for (int i = 0; i < 10; i++) {
-            System.out.println(cards.pollLast());
-        }
+//        for (int i = 0; i < 10; i++) {
+//            System.out.println(cards.pollLast());
+//        }
+
+        Card card = new Card(Card.Suit.SPADES, Card.Face.Ten);
+        cards.removeFirstOccurrence(card);
+        cards.removeLastOccurrence(card);
+
+
         /*  System.out.println(cardDeck); //вызов с разбросом небольшим
         Iterator<Card> iterator = cardDeck.iterator();
         while (iterator.hasNext()) {
