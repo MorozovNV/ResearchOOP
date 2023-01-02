@@ -42,6 +42,8 @@ public class SetRunner {
         }
         System.out.println(cars);
     }
+
+
 }
 
 //С Новым годом! Пусть он будет лучше предыдущего.

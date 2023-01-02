@@ -33,4 +33,9 @@ public class Car {
         if (!this.model.equals(car.getModel())) return false;
         return this.pricePerDay == car.getPricePerDay();
     }
+
+    @Override
+    public int hashCode() {
+        return super.hashCode();
+    }
 }
