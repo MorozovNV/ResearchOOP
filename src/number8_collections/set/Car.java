@@ -3,7 +3,7 @@ package number8_collections.set;
 public class Car {
     private final String carBrand;
     private final String model;
-    private final int pricePerDay;
+    private final Integer pricePerDay;
 
     public Car(String carBrand, String model, int pricePerDay) {
         this.carBrand = carBrand;
@@ -33,9 +33,12 @@ public class Car {
         if (!this.model.equals(car.getModel())) return false;
         return this.pricePerDay == car.getPricePerDay();
     }
-
     @Override
     public int hashCode() {
-        return super.hashCode();
+        int result = carBrand.hashCode();
+        result =31 * result + model.hashCode();
+        result = 31 * result + pricePerDay.hashCode();
+
+        return result;
     }
 }
