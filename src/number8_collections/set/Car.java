@@ -39,6 +39,7 @@ public class Car {
         result =31 * result + model.hashCode();
         result = 31 * result + pricePerDay.hashCode();
 
+
         return result;
     }
 }
