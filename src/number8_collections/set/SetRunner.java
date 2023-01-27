@@ -33,6 +33,25 @@ public class SetRunner {
         Set<Car> uniqueCars = new HashSet<>(sixCars);
         uniqueCars.addAll(europaCars);
         print(uniqueCars);
+
+        System.out.println("||||||||||||||||||||||||");
+
+        /*   разность
+        europaCars.removeAll(sixCars);
+        print(europaCars); */
+
+        /* пересечение
+        sixCars.retainAll(europaCars);
+        print(sixCars); */
+
+        // симметрическая разность  = обьединение - пересечение
+        sixCars.retainAll(europaCars);
+        uniqueCars.removeAll(sixCars);
+        print(uniqueCars);
+
+
+
+
     }
 
     private static void print(Set<Car   /*String*/> cars) {

@@ -36,9 +36,8 @@ public class Car {
     @Override
     public int hashCode() {
         int result = carBrand.hashCode();
-        result =31 * result + model.hashCode();
+        result = 31 * result + model.hashCode();
         result = 31 * result + pricePerDay.hashCode();
-
 
         return result;
     }
