@@ -1,8 +1,6 @@
 package number8_collections.treeset;
 
-import java.util.HashSet;
-import java.util.Set;
-import java.util.TreeSet;
+import java.util.*;
 
 public class SetRunner {
     public static void main(String[] args) {
@@ -22,7 +20,7 @@ public class SetRunner {
         sixCars.add(new Car("VM", "Golf", 45));
         sixCars.add(new Car("VMa", "Golfa", 50));
         sixCars.add(new Car("VMb", "Golfb", 55));
-        sixCars.add(new Car("VMc", "Golfc", 60));
+        sixCars.add(new Car("VMc", "Golfc", 70));
 
         Set<Car> europaCars = new HashSet<>();
         europaCars.add(new Car("VM", "Golf", 45));
@@ -30,13 +28,25 @@ public class SetRunner {
         europaCars.add(new Car("VM2", "Golf2", 55));
         europaCars.add(new Car("VM3", "Golf3", 60));
 
-        Set<Car> uniqueCars = new TreeSet<>(sixCars);
+        NavigableSet<Car> uniqueCars = new TreeSet<>(sixCars);
         uniqueCars.addAll(europaCars);
         print(uniqueCars);
+        System.out.println("____________________________________");
+        //ветка до
+        //SortedSet<Car> cars = uniqueCars.headSet(new Car("VM", "Golf1", 50));
+        //print(cars);
 
+        //ветка после
+        //SortedSet<Car> cars = tailCars.headSet(new Car("VM", "Golf1", 50));
 
+        //между
+        SortedSet<Car> cars = uniqueCars.subSet(new Car("VM", "Golf1", 50), new Car("M", "G", 60));
+        print(cars);
+        System.out.println("____________________________________");
 
-
+        //между включая последний - у меня не работает! он и так добавляет последнюю строку!
+        SortedSet<Car> cars1 = uniqueCars.subSet(new Car("VM1", "Golf1", 50), true, new Car("VM3", "Golf3", 60), true);
+        print(cars1);
 
     }
 

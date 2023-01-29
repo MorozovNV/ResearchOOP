@@ -50,6 +50,9 @@ public class Car implements Comparable<Car>{
         if (pricePerDay > car.getPricePerDay()) {
             return +1;
         }
+        if (pricePerDay == car.getPricePerDay()) {
+            return +1;
+        }
         return 0;
     }
 }
