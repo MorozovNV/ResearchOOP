@@ -3,10 +3,10 @@ package number9_InputOutputFile;
 import number8_collections.treeMap.AverageStudentGrade;
 import number8_collections.treeMap.SubjectGrade;
 
-import java.io.FileNotFoundException;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.PrintWriter;
+import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.*;
 
 public class Writer {
@@ -45,7 +45,14 @@ public class Writer {
     }
 
     public void writeObject(List<Student> students, String fileName ){
-
+        try(ObjectOutputStream out = new ObjectOutputStream(Files.newOutputStream(Paths.get(fileName)))){
+            for (Student student: students){
+                out.writeObject(student);
+            }
+        } catch (IOException e) {
+            System.out.println("File cant be opened. Program terminates");
+            e.printStackTrace();
+        }
     }
 
 

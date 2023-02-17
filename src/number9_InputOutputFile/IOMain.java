@@ -9,6 +9,7 @@ import java.util.*;
 
 public class IOMain {
     private static final String FILE_NAME = "GradeBook.txt";
+    private static final String BINARY_FILE = "Students.bin";
 
     public static void main(String[] args) throws IOException {
 
@@ -16,8 +17,11 @@ public class IOMain {
         Reader reader = new Reader();
         Writer writer = new Writer();
         writer.writeFile(grades, FILE_NAME);
-        //writer.writeWithFotmatter(FILE_NAME);
+        //writer.writeWithFormatter(FILE_NAME);
         reader.readFile(FILE_NAME);
+
+        processGrades(grades, writer, BINARY_FILE);
+
 
         /* System.out.println("___________BYTE________________");
         try (FileInputStream reader = new FileInputStream(FILE_NAME);
@@ -31,7 +35,7 @@ public class IOMain {
 
     }
 
-    private void processGrades(SortedMap<AverageStudentGrade, Set<SubjectGrade>> grades, Writer writer, String fileName){
+    private static void processGrades(SortedMap<AverageStudentGrade, Set<SubjectGrade>> grades, Writer writer, String fileName){
             List<Student> students = new ArrayList<>();
             for (AverageStudentGrade gradeKey: grades.keySet()){
                 students.add(new Student(gradeKey.getName(), gradeKey.getAverageGrade(),grades.get(gradeKey)));
