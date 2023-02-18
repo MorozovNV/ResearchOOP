@@ -49,6 +49,7 @@ public class Writer {
             for (Student student: students){
                 out.writeObject(student);
             }
+            out.writeObject(new Student("", -1, null)); //конец фаила
         } catch (IOException e) {
             System.out.println("File cant be opened. Program terminates");
             e.printStackTrace();

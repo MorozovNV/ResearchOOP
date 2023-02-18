@@ -18,9 +18,10 @@ public class IOMain {
         Writer writer = new Writer();
         writer.writeFile(grades, FILE_NAME);
         //writer.writeWithFormatter(FILE_NAME);
-        reader.readFile(FILE_NAME);
+       // reader.readFile(FILE_NAME);
 
         processGrades(grades, writer, BINARY_FILE);
+        outputObjects(reader, BINARY_FILE);
 
 
         /* System.out.println("___________BYTE________________");
@@ -35,13 +36,22 @@ public class IOMain {
 
     }
 
-    private static void processGrades(SortedMap<AverageStudentGrade, Set<SubjectGrade>> grades, Writer writer, String fileName){
-            List<Student> students = new ArrayList<>();
-            for (AverageStudentGrade gradeKey: grades.keySet()){
-                students.add(new Student(gradeKey.getName(), gradeKey.getAverageGrade(),grades.get(gradeKey)));
-            }
+    private static void processGrades(SortedMap<AverageStudentGrade, Set<SubjectGrade>> grades, Writer writer, String fileName) {
+        List<Student> students = new ArrayList<>();
+        for (AverageStudentGrade gradeKey : grades.keySet()) {
+            students.add(new Student(gradeKey.getName(), gradeKey.getAverageGrade(), grades.get(gradeKey)));
+        }
 
-            writer.writeObject(students, fileName);
+        writer.writeObject(students, fileName);
+
+    }
+
+    private static void outputObjects(Reader reader, String fileName) {
+        List<Student> students = reader.readObject(fileName);
+        for (Student student : students) {
+            System.out.printf("%s, %.2f, %n", student.getName(), student.getAverageGrade());
+            System.out.println(student.getGrades());
+        }
 
     }
 
