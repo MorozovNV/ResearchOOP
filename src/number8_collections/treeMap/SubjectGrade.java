@@ -1,8 +1,9 @@
 package number8_collections.treeMap;
 
+import java.io.Serializable;
 import java.util.Objects;
 
-public class SubjectGrade {
+public class SubjectGrade implements Serializable {
     private final String subject;
     private final int grade;
 

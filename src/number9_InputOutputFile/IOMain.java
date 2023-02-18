@@ -16,7 +16,7 @@ public class IOMain {
         SortedMap<AverageStudentGrade, Set<SubjectGrade>> grades = TreeMapRunner.createGrades();
         Reader reader = new Reader();
         Writer writer = new Writer();
-        writer.writeFile(grades, FILE_NAME);
+        //  writer.writeFile(grades, FILE_NAME);
         //writer.writeWithFormatter(FILE_NAME);
        // reader.readFile(FILE_NAME);
 
