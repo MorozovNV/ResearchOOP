@@ -20,8 +20,11 @@ public class IOMain {
         //writer.writeWithFormatter(FILE_NAME);
        // reader.readFile(FILE_NAME);
 
-        processGrades(grades, writer, BINARY_FILE);
-        outputObjects(reader, BINARY_FILE);
+       // processGrades(grades, writer, BINARY_FILE);
+        //outputObjects(reader, BINARY_FILE);
+
+        System.out.println(System.getProperty("user.dir"));
+        
 
 
         /* System.out.println("___________BYTE________________");
