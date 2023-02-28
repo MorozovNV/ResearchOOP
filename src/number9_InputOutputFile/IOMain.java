@@ -24,7 +24,9 @@ public class IOMain {
         //outputObjects(reader, BINARY_FILE);
 
         System.out.println(System.getProperty("user.dir"));
-        
+
+        FileUtils fileUtils = new FileUtils();
+        fileUtils.printNioFileDetails(FILE_NAME);
 
 
         /* System.out.println("___________BYTE________________");
